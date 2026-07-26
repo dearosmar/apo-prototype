@@ -1,0 +1,38 @@
+{
+  "source": "한국수출입은행 환율 API (AP01) 샘플 스냅숏",
+  "snapshot_date": "2026-07-25",
+  "rates": [
+    {
+      "result": 1,
+      "cur_unit": "USD",
+      "cur_nm": "미국 달러",
+      "ttb": "1,371.42",
+      "tts": "1,399.13",
+      "deal_bas_r": "1,385.30"
+    },
+    {
+      "result": 1,
+      "cur_unit": "CNH",
+      "cur_nm": "위안화",
+      "ttb": "189.75",
+      "tts": "193.59",
+      "deal_bas_r": "191.67"
+    },
+    {
+      "result": 1,
+      "cur_unit": "JPY(100)",
+      "cur_nm": "일본 옌",
+      "ttb": "927.61",
+      "tts": "946.36",
+      "deal_bas_r": "936.99"
+    },
+    {
+      "result": 1,
+      "cur_unit": "EUR",
+      "cur_nm": "유로",
+      "ttb": "1,596.84",
+      "tts": "1,629.11",
+      "deal_bas_r": "1,612.98"
+    }
+  ]
+}
