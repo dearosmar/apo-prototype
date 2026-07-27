@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 
 from app.config import get_settings
-from app.routers import cost
+from app.routers import ask, cost
 
 app = FastAPI(title="바다 건너 사장님 API", version="0.1.0")
 app.include_router(cost.router)
