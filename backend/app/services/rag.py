@@ -13,7 +13,28 @@ CHUNKS_FILE = VECTORSTORE_DIR / "chunks.json"
 EMBEDDING_MODEL = "intfloat/multilingual-e5-small"
 CHUNK_SIZE = 700
 CHUNK_OVERLAP = 150
-SNIPPET_LEN = 160
+SNIPPET_LEN = 150
+
+
+def make_snippet(text: str, limit: int = SNIPPET_LEN) -> str:
+    text = " ".join(text.split())
+    if len(text) <= limit:
+        return text
+    words: List[str] = []
+    length = 0
+    for word in text.split(" "):
+        extra = len(word) + (1 if words else 0)
+        if length + extra > limit:
+            break
+        words.append(word)
+        length += extra
+    if not words:
+        return text[:limit]
+    snippet = " ".join(words)
+    boundary = snippet.rfind(". ")
+    if boundary > 0:
+        snippet = snippet[: boundary + 1]
+    return snippet
 
 
 def extract_pdf_pages(path) -> List[Dict]:
@@ -135,7 +156,7 @@ def search(query: str, top_k: int = 4) -> List[Dict]:
             {
                 "doc": chunk["doc"],
                 "page": chunk["page"],
-                "snippet": chunk["text"][:SNIPPET_LEN],
+                "snippet": make_snippet(chunk["text"]),
                 "text": chunk["text"],
                 "score": float(score),
             }
