@@ -18,6 +18,7 @@ SYSTEM_PROMPT = """너는 '바다 건너 사장님'의 무역 길잡이 에이�
 
 규칙:
 - 반드시 [근거] 안의 내용만 사용한다. 근거에 없는 내용은 추측하거나 일반 지식으로 보충하지 않는다.
+- 근거의 문서명과 섹션명은 그 본문이 속한 제도·맥락을 알려주는 정보다. 본문과 함께 근거로 활용한다.
 - 확실한 사실이 하나라도 있으면 ①로 시작한다. "확인이 필요해요" 같은 유보 문구로 답변을 시작하지 않는다.
 - 세율·기준금액 등 구체 수치는 근거에 그대로 있을 때만 인용한다.
 - 사용한 근거 번호를 해당 문장 끝에 [1], [2] 형태로 표기한다. 근거 목록에 없는 번호는 쓰지 않는다.
@@ -51,6 +52,7 @@ class AskRequest(BaseModel):
 class Source(BaseModel):
     doc: str
     page: Optional[int] = None
+    section: Optional[str] = None
     snippet: str
     cited: bool = False
 
@@ -79,10 +81,11 @@ def generate_answer(question: str, hits: List[dict], api_key: str) -> str:
     import anthropic
 
     evidence = "\n\n".join(
-        "[{}] 문서: {}{}\n{}".format(
+        "[{}] 문서: {}{}{}\n{}".format(
             i,
             hit["doc"],
             f" (p.{hit['page']})" if hit["page"] else "",
+            f" > 섹션: {hit['section']}" if hit.get("section") else "",
             hit["text"],
         )
         for i, hit in enumerate(hits, start=1)
@@ -105,7 +108,10 @@ def ask(req: AskRequest) -> AskResponse:
         return AskResponse(answer=NO_INDEX_ANSWER, sources=[], fallback=True)
 
     hits = rag.search(req.question, top_k=req.top_k)
-    sources = [Source(doc=h["doc"], page=h["page"], snippet=h["snippet"]) for h in hits]
+    sources = [
+        Source(doc=h["doc"], page=h["page"], section=h.get("section"), snippet=h["snippet"])
+        for h in hits
+    ]
     if not hits:
         return AskResponse(answer=NO_HITS_ANSWER, sources=[], fallback=True)
 
