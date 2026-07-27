@@ -1,0 +1,774 @@
+
+
+
+
+<!DOCTYPE HTML>
+<html lang="ko">
+<head>
+<script>
+    if(top != window) {
+        top.location = window.location;
+    }
+</script>
+    <title>안전한 제품, 행복한 국민 제품안전정보센터입니다.</title>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/resources/img/icon/favicon.ico" type="image/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/resources/font/font.css"/>
+    <link rel="stylesheet" href="/resources/css/jquery-ui.min.css">
+    <link rel="stylesheet" type="text/css" href="/resources/css/style.css"/>
+    <script src="/resources/js/jquery-1.11.2.js"></script>
+    <script src="/resources/js/common.js"></script>
+    <script src="/resources/js/jquery.bpopup.min.js"></script>
+	<script src="/resources/js/jquery-ui.min.js"></script>
+
+</head>
+<body>
+
+<script >
+console.log("40H");
+    if(top != window) {
+        top.location = window.location;
+    }
+	$(document).ready(function(){
+//if($(".contents_area").length){
+//$('.sns').prepend('<li><a href="#contMove">< 본문 바로가기 ></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>');
+$('.contents_top').wrap('<a href="#none" id="contMove"></a>');
+//}
+	$('.gnb>li> *').focus(function(){
+	$(this).addClass('on');
+    $('.gnb>li>ul').show();
+});   
+   
+$('#lastManu').blur(function(){
+ 	  $('.gnb>li>ul').hide();
+       $(this).removeClass('on');
+ });
+	});
+
+</script>	 
+<!-- header -->
+<div class="header">
+    <!-- inner -->
+    <div class="inner">
+	<div><a href="#contMove" autofocus>&lt;본문 바로가기&gt;</a></div>
+        <h1><a href="/"><img
+                src="/resources/img/common/h1.gif" alt="안전한제품, 행복한국민 KATS 제품안전정보센터" title="메인"/></a>
+        </h1>
+
+        <!-- search -->
+        <div class="search">
+            <ul style="padding-top:10px;">
+                <li class="tit"><img title="통합 검색" src="/resources/img/common/search_tit.gif"
+                                     alt="통합 검색"/></li>
+                <li class="input"><input type="text" id="SafetyTopic" class="FT_input_box ui-autocomplete-input"
+                                         title="검색어" /></li>
+                <li class="btn"><input type="image"
+                                       src="/resources/img/common/search_btn.gif"
+                                       alt="검색" title="검색"/></li>
+                <script >
+var k ='o';						 
+                    $("input[alt=검색]").click(function () {
+if(k=='o'){				
+var loading = $('<div id="loading style" style="width:100%;height:100%;top:0px;left:0px;position:fixed;display:block;opacity:0.7;background-color:#fff;z-index:1000;text-align:center;"><img style="position:absolute;top:50%;left: 50%;z-index: 100;" id="loading_img" alt="loading" src="/resources/img/sub/49_body_4_3.jpg" /></div>')
+						.appendTo(document.body).show();
+                    	k='x';			
+                        var SafetyTopic = $("#SafetyTopic").val();
+						var special_pattern = /[`~!@#$%^&*|\\\'\";:\/?<>(),]/gi;
+						if(special_pattern.test(SafetyTopic)==true){
+							alert("사용불가능한 특수문자 입니다.");
+							return;		
+						}
+                        var expose_SafetyTopicMapURL_link_url = "https://search.safetykorea.kr/tm/tmsearch.do?qry=";
+                        $(location).attr("href", expose_SafetyTopicMapURL_link_url + encodeURIComponent(SafetyTopic));
+}						
+                    });
+                    function enterSearch(e) {
+
+                    	alert("통합검색 서비스 점검 중입니다. 서비스 이용에 불편을 드려 죄송합니다.");
+                    	return;
+                        if (e.keyCode == 13) {
+							   if(k=='o'){
+
+var loading = $('<div id="loading style" style="width:100%;height:100%;top:0px;left:0px;position:fixed;display:block;opacity:0.7;background-color:#fff;z-index:1000;text-align:center;"><img style="position:absolute;top:50%;left: 50%;z-index: 100;" id="loading_img" alt="loading" src="/resources/img/sub/49_body_4_3.jpg" /></div>')
+    						.appendTo(document.body).show();                    	
+                        	k='x';
+                            var SafetyTopic = $("#SafetyTopic").val();
+
+                            var expose_SafetyTopicMapURL_link_url = "https://search.safetykorea.kr/tm/tmsearch.do?qry=";
+                        $(location).attr("href", expose_SafetyTopicMapURL_link_url + encodeURIComponent(SafetyTopic));
+						   }
+                        }
+                    }
+                </script>
+            </ul>
+        </div>
+        <!-- //search -->
+
+        <!-- sns -->
+        <ul class="sns">
+            <li><a target="_blank"
+                   href="https://www.korea.kr/news/policyFocusList.do?pkgId=49500813&call_from=dept"><img
+                    src="/resources/img/common/banner_h25.jpg" alt="banner" title="banner"/></a>
+            </li>
+            <li><a target="_blank"
+                   href="https://www.facebook.com/pages/%EC%A0%9C%ED%92%88%EC%95%88%EC%A0%84%EC%A0%95%EB%B3%B4%EC%84%BC%ED%84%B0/581276555339255"><img
+                    src="/resources/img/common/sns02.gif" alt="facebook" title="facebook"/></a>
+            </li>
+            <li><a target="_blank" href="https://www.instagram.com/kats.safetykorea/"><img
+                    src="/resources/img/common/sns05.gif" alt="instagram" title="instagram"/></a>
+            </li>            
+<li><a target="_blank" href="https://www.youtube.com/kats_safetykorea"><img 
+                     src="/resources/img/common/sns06.png" alt="youtube" title="youtube"/></a> 
+             </li> 				
+        </ul>
+        <!-- //sns -->
+    </div>
+    <!-- //inner -->
+
+    <!-- gnb_area -->
+    <div class="gnb_area">
+        <!-- inner -->
+        <div class="inner">
+            <!-- gnb -->
+            <ul class="gnb">
+                <li>
+                    <a href="#certinfoMenu">정보공개</a>
+                    <ul class="first">
+
+                        <li><span>·</span><a id="certInfoMenu" href="#" onclick="$('#certifiGo').submit();">인증정보 검색</a></li>
+
+                        <li><span>·</span><a href="/release/openapi">Open API</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#recallMenu">제품리콜</a>
+                    <ul>
+                        <li><span>·</span><a id="recallMenu" href="/recall/recallBoard">리콜정보 검색</a>
+                        </li>
+                        <li><span>·</span><a href="/recall/recallIntro">리콜제도 소개</a>
+                        </li>
+                        <li><span>·</span><a href="/recall/recallProc01">리콜절차 안내</a>
+                        </li>
+                        <li><span>·</span><a href="/recall/recallReportRegist">사업자 리콜
+                            보고</a></li>
+                        <li><span>·</span><a href="/recall/recallGlobalSite">해외 리콜
+                            사이트</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#productMenu">위해신고</a>
+                    <ul>
+                        <li><span>·</span><a id="productMenu" href="/report/product">제품사고 신고</a></li>
+
+                        <li><span>·</span><a href="/report/product_incident_report">제품사고 발생 보고</a>
+                        </li> 
+                        <li><span>·</span><a target="_self" href="/report/qna">민원
+                            Q&amp;A</a></li>
+                        <li><span>·</span><a target="_self"
+                                             href="/report/illegal_entry">불법·불량
+                            제품신고</a></li>
+
+                    </ul>
+                </li>
+                <li>
+                    <a href="#statuteMenu">안전정책</a>
+                    <ul>
+                        <li><span>·</span><a id="statuteMenu" href="/policy/statute">법령</a></li>
+						<li><span>·</span><a href="/policy/totalPlan">제품안전 종합계획</a></li>
+						<li><span>·</span><a href="/policy/childPlan">어린이 기본계획</a>
+                        </li>
+                        <li><span>·</span><a href="/policy/targetsSafetyCert">제품안전
+                            대상품목</a></li>
+                        <li><span>·</span><a href="/policy/standard">제품안전 기준열람</a>
+                        </li>
+                        <li><span>·</span><a href="/policy/b_marketProductCert">시장유통
+                            전</a></li>
+                        <li><span>·</span><a href="/policy/a_marketSafety">시장유통 후</a>
+                        </li>
+                        <li><span>·</span><a href="/policy/certification_info">인증기관
+                            소개</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#noticeMenu">알림뉴스</a>
+                    <ul>
+                        <li><span>·</span><a id="noticeMenu" href="/news/notice">공지사항</a></li>
+                        <li><span>·</span><a href="/news/notification_policy">정책알림</a>
+                        </li>
+                        <li><span>·</span><a href="/news/promote">보도자료</a></li>
+                        <li><span>·</span><a href="/news/animation">웹툰</a></li>
+                        <li><span>·</span><a href="/news/public">홍보영상</a></li>
+                        <li><span>·</span><a href="/news/publications">간행물</a></li>
+                        <li><span>·</span><a href="/news/studentList">제품안전 교육자료</a></li>
+
+                    </ul>
+                </li>
+                <li>
+                    <a href="#centerintroMenu">센터소개</a>
+                    <ul class="last">
+                        <li><span>·</span><a id="centerintroMenu" href="/introduce/centerintro">소개</a></li>
+                        <li><span>·</span><a href="/introduce/staff">직원안내</a></li>
+                        <li><span>·</span><a href="/introduce/comeway">오시는길</a></li>
+                        <li><span>·</span><a href="/introduce/complain">시스템 불편사항</a></li>
+                        <li><span>·</span><a id="lastManu" href="/introduce/media">자주하는 질문</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- //gnb -->
+    		<form action="/release/certificationsearch" method="post" id="certifiGo"></form>
+        </div>
+        <!-- //inner -->
+    </div>
+    <!-- //gnb_area -->
+</div>
+<!-- //header -->
+
+<div class="container">
+    <h2 class="hide">주메뉴</h2>
+    
+    
+<script>
+    if(top != window) {
+        top.location = window.location;
+    }
+    </script>
+<!-- lnb -->
+<div class="lnb">
+    <ul>
+        <li>
+            <a href="#none">정보공개 </a>
+            <ul class="first" style="display: none">
+                
+                
+                <li><a href="#" onclick="$('#certifiGo').submit();">인증정보 검색</a></li>
+                
+                <li><a href="/release/openapi">Open API</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#none">제품리콜</a>
+            <ul style="display: none">
+                <li><a href="/recall/recallBoard">리콜정보 검색</a></li>
+                <li><a href="/recall/recallIntro">리콜제도 소개</a></li>
+                <li><a href="/recall/recallProc01">리콜절차 안내</a></li>
+                <li><a href="/recall/recallReportRegist">사업자 리콜 보고</a></li>
+
+                <li><a href="/recall/recallGlobalSite">해외 리콜 사이트</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#none">위해신고</a>
+            <ul style="display: none">
+                <li><a href="/report/product">제품사고 신고</a></li>
+
+                
+                <li><a href="/report/product_incident_report">제품사고 발생 보고</a></li> <!-- 제품사고 발생 보고 추가 (2016-09-06 : 김연준) -->
+                
+ <!-- 전문가 SNS 메뉴 숨김 (2016-07-26 : 김연준) -->
+                <li><a target="_self" href="/report/qna">민원 Q&amp;A</a></li>
+                <li><a target="_self" href="/report/illegal_entry">불법·불량 제품신고</a></li>
+                
+                
+            </ul>
+        </li>
+        <li>
+            <a href="#none">안전정책</a>
+            <ul style="display: block">
+                <li><a href="/policy/statute">법령</a></li>
+                <li><a href="/policy/totalPlan">제품안전 종합계획</a></li>
+                <li><a href="/policy/childPlan">어린이 기본계획</a></li>
+                <li><a href="/policy/targetsSafetyCert">제품안전 대상품목</a></li>
+                <li><a href="/policy/standard">제품안전 기준열람</a></li>
+                <li><a href="/policy/b_marketProductCert">시장유통 전</a></li>
+                <li><a href="/policy/a_marketSafety">시장유통 후</a></li>
+                <li><a href="/policy/certification_info">인증기관 소개</a></li>
+                
+            </ul>
+        </li>
+        <li>
+            <a href="#none">알림뉴스</a>
+            <ul style="display: none">
+                <li><a href="/news/notice">공지사항</a></li>
+                <li><a href="/news/notification_policy">정책알림</a></li>
+                <li><a href="/news/promote">보도자료</a></li>
+                <li><a href="/news/animation">웹툰</a></li>
+                <li><a href="/news/public">홍보영상</a></li>
+                <li><a href="/news/publications">간행물</a></li>
+                <li><a href="/news/studentList">제품안전 교육자료</a></li>
+
+
+ 
+            </ul>
+        </li>
+        <li>
+            <a href="#none">센터소개</a>
+            <ul class="last" style="display: none">
+                <li><a href="/introduce/centerintro">소개</a></li>
+                <li><a href="/introduce/staff">직원안내</a></li>
+                <li><a href="/introduce/comeway">오시는길</a></li>
+                <li><a href="/introduce/complain">시스템 불편사항</a></li>
+                <li><a href="/introduce/media">자주하는 질문</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<!-- //lnb -->
+    
+    
+
+
+
+<link rel="stylesheet" href="/resources/css/policy.css">
+<script>
+document.title="생활용품 > 안전확인";
+</script>	 
+<!-- contents_area -->
+<div class="contents_area">
+  <!-- contents_top -->
+  <div class="contents_top">
+    <h3>제품안전 대상품목</h3>
+    <ul>
+      <li><img src="/resources/img/common/home.gif" alt="홈" /></li>
+      <li>&gt;</li>
+      <li>안전정책</li>
+      <li>&gt;</li>
+      <li>제품안전 대상품목</li>
+    </ul>
+  </div>
+  <!-- //contents_top -->
+
+  <!-- contents -->
+  <div class="contents">
+
+    <!-- tab_menu -->
+    <ul class="tab_menu">
+      <li><a href="/policy/targetsSafetyCert">전기용품</a></li>
+      <li class="on"><a href="/policy/targetsSafetyCert2">생활용품</a></li>
+      <li><a href="/policy/targetsSafetyCert3">어린이제품</a></li>
+    </ul>
+    <!-- //tab_menu -->
+
+    <!-- section -->
+    <div class="section">
+     
+      <!-- tab_menu02 -->
+      <p>
+        <span class="tab_box_off"><a href="/policy/targetsSafetyCert2">안전인증</a></span>
+        <span class="tab_box"><a href="/policy/targetsSafetyCheck2">안전확인</a></span>
+        <span class="tab_box_off"><a href="/policy/targetsSafetyQuality">공급자적합성확인</a></span>
+        <span class="tab_box_off"><a href="/policy/targetsSafetyStandard">안전기준준수</a></span>
+        
+      </p>
+      <!-- //tab_menu02 -->
+    </div>
+    <!-- //section -->
+		
+<!-- section -->
+	<div class="section">
+		     <!-- <img src="/resources/img/sub/s2-1.png" alt="안전확인제도, 안전확인대상 생활용품" /> -->
+		     <p class="tit2">안전확인제도</p>
+			<p>
+			전기용품 및 생활용품 안전관리법 제15조<br>
+			안전확인대상제품의 제조업자 또는 수입업자가 출고 또는 통관 전에 모델별로 안전확인시험기관으로부터 안전확인시험을 받아 안전기준에 적합한 것임을 확인한 후 이를 안전인증기관에 신고하는 제도
+			</p>
+			<br><br>
+			<p class="tit2">안전확인대상 생활용품</p>
+			<p>
+			전기용품 및 생활용품 안전관리법, 제2조제11호 및 동법 시행규칙 제3조제4항<br>
+			구조·재질 또는 사용 방법 등으로 인하여 소비자의 생명·신체에 대한 위해, 재산상 피해나 자연환경의 훼손에 대한 우려가 있는 생활용품
+			</p>
+			<p style="color: red; font-size: 11px;">※ 파란색 글씨를 클릭하시면 안전기준을 열람(다운로드) 할 수 있습니다.</p>
+		     <div class="tb_wrap" style="width:97.5%">
+		       <table class="tb">
+									<caption> 안전확인대상 생활용품 </caption>							
+		          <tr>
+		            <th style="width:20%" class="ta_center">분 야</th>
+		            <th class="ta_center">안전확인대상 생활용품(23품목)</th>
+		          </tr>
+		          <tr>
+		            <td class="fs13 ta_center">섬유</td>
+		           <td class="fs13">
+		            	&nbsp;<a target="_blank" style="color:#0095e6;" href="http://kats.go.kr/content.do?cmsid=527&sf_cat1=CWS485&cat1_0=CWS485&sf_cat2=CWS491&mode=view&page=1&cid=19125">등산용 로프</a><br>
+		            	&nbsp;<a target="_blank" style="color:#0095e6;" href="http://kats.go.kr/content.do?cmsid=527&sf_cat1=CWS485&cat1_0=CWS485&sf_cat2=CWS491&mode=view&page=1&cid=19126">스포츠용 구명복</a><br>
+		            </td>
+		          </tr>
+		          <tr>
+		            <td class="fs13 ta_center">화학</td>
+		            <td class="fs13">
+		            	&nbsp;<a target="_blank" style="color:#0095e6;" href="http://kats.go.kr/content.do?cmsid=527&sf_cat1=CWS485&cat1_0=CWS485&sf_cat2=CWS493&mode=view&page=1&cid=19127">건전지(충전지는 제외한다)</a>,&nbsp;<a style="color:#0095e6;" href="http://kats.go.kr/content.do?cmsid=527&sf_cat1=CWS485&cat1_0=CWS485&sf_cat2=CWS493&mode=view&page=1&cid=21270">건전지('20.11.15.시행)</a><br>
+		            	&nbsp;<a target="_blank" style="color:#0095e6;" href="http://kats.go.kr/content.do?cmsid=527&sf_cat1=CWS485&cat1_0=CWS485&sf_cat2=CWS493&mode=view&page=1&cid=19129">자동차용 브레이크액</a><br>
+		            	&nbsp;<a target="_blank" style="color:#0095e6;" href="http://kats.go.kr/content.do?cmsid=527&sf_cat1=CWS485&cat1_0=CWS485&sf_cat2=CWS493&mode=view&page=1&cid=19131">자동차용 타이어</a><br>
+		            </td>
+		          </tr>
+		          <tr>
+		            <td class="fs13 ta_center">기계</td>
+		            <td class="fs13">
+		            	&nbsp;<a target="_blank" style="color:#0095e6;" href="http://kats.go.kr/content.do?cmsid=527&sf_cat1=CWS485&cat1_0=CWS485&sf_cat2=CWS494&mode=view&page=1&cid=21096">빙삭기</a><br>
+		            	&nbsp;<a target="_blank" style="color:#0095e6;" href="http://kats.go.kr/content.do?cmsid=527&sf_cat1=CWS485&cat1_0=CWS485&sf_cat2=CWS494&mode=view&page=1&cid=19138">휴대용 예초기의 날 및 보호덮개</a>,&nbsp;<a style="color:#0095e6;" href="http://kats.go.kr/content.do?cmsid=527&mode=view&page=&cid=21459">휴대용 예초기의 날 및 보호덮개('21.03.04.시행)</a>
+		            </td>
+		          </tr>
+		          <tr>
+		            <td class="fs13 ta_center">건축</td>
+		            <td class="fs13">
+						&nbsp;<a target="_blank" style="color:#0095e6;" href="http://kats.go.kr/content.do?cmsid=527&sf_cat1=CWS485&cat1_0=CWS485&sf_cat2=CWS495&mode=view&page=1&cid=19140">미끄럼 방지타일</a><br>
+						&nbsp;<a target="_blank" style="color:#0095e6;" href="http://kats.go.kr/content.do?cmsid=527&sf_cat1=CWS485&cat1_0=CWS485&sf_cat2=CWS495&mode=view&page=1&cid=19142">실내용 바닥재</a><br>
+		            </td>
+		          </tr>
+		          <tr>
+		            <td class="fs13 ta_center">생활</td>
+		            <td class="fs13">
+						&nbsp;<a target="_blank" style="color:#0095e6;" href="http://kats.go.kr/content.do?cmsid=527&sf_cat1=CWS485&cat1_0=CWS485&sf_cat2=CWS496&mode=view&page=2&cid=19143">고령자용 보행보조차</a>,&nbsp;<a target="_blank" style="color:#0095e6;" href="http://kats.go.kr/content.do?cmsid=527&sf_cat1=CWS485&cat1_0=CWS485&sf_cat2=CWS496&mode=view&page=2&cid=19144">고령자용 보행차</a><br>
+						&nbsp;<a target="_blank" style="color:#0095e6;" href="http://kats.go.kr/content.do?cmsid=527&sf_cat1=CWS485&cat1_0=CWS485&sf_cat2=CWS496&mode=view&page=2&cid=19145">디지털 도어록</a><br>
+						&nbsp;<a target="_blank" style="color:#0095e6;" href="http://kats.go.kr/content.do?cmsid=527&sf_cat1=CWS485&cat1_0=CWS485&sf_cat2=CWS496&mode=view&page=2&cid=19146">롤러스포츠 보호장구</a><br>
+						&nbsp;<a target="_blank" style="color:#0095e6;" href="http://kats.go.kr/content.do?cmsid=527&sf_cat1=CWS485&cat1_0=CWS485&sf_cat2=CWS496&mode=view&page=2&cid=19147">스노보드</a><br>
+						&nbsp;<a target="_blank" style="color:#0095e6;" href="http://kats.go.kr/content.do?cmsid=527&sf_cat1=CWS485&cat1_0=CWS485&sf_cat2=CWS496&mode=view&page=2&cid=19149">스케이트보드</a>,&nbsp;<a target="_blank" style="color:#0095e6;" href="http://kats.go.kr/content.do?cmsid=527&sf_cat1=CWS485&cat1_0=CWS485&sf_cat2=CWS496&mode=view&page=1&cid=21273">스케이드보드('20.02.16.시행)</a><br>
+						&nbsp;<a target="_blank" style="color:#0095e6;" href="http://kats.go.kr/content.do?cmsid=527&sf_cat1=CWS485&cat1_0=CWS485&sf_cat2=CWS496&mode=view&page=1&cid=19150">스키용구</a><br>				
+						&nbsp;<a target="_blank" style="color:#0095e6;" href="http://kats.go.kr/content.do?cmsid=527&sf_cat1=CWS485&cat1_0=CWS485&sf_cat2=CWS496&mode=view&page=1&cid=23148">이륜자전거</a><br>
+						&nbsp;<a target="_blank" style="color:#0095e6;" href="http://kats.go.kr/content.do?cmsid=527&sf_cat1=CWS485&cat1_0=CWS485&sf_cat2=CWS496&mode=view&page=1&cid=19153">헬스기구</a>,&nbsp;<a target="_blank" style="color:#0095e6;" href="http://kats.go.kr/content.do?cmsid=527&sf_cat1=CWS485&cat1_0=CWS485&sf_cat2=CWS496&mode=view&page=1&cid=22973">휴대용레이저용품</a><br>
+						&nbsp;<a target="_blank" style="color:#0095e6;" href="http://kats.go.kr/content.do?cmsid=527&sf_cat1=CWS485&cat1_0=CWS485&sf_cat2=CWS496&mode=view&page=1&cid=19155">승차용안전모</a>&nbsp;<a target="_blank" style="color:#0095e6;" href="http://kats.go.kr/content.do?cmsid=527&page=1&sf_cat1=CWS485&cat1_0=CWS485&sf_cat2=CWS496">(승차용 눈보호구를 포함한다)</a><br>
+						&nbsp;<a target="_blank" style="color:#0095e6;" href="http://kats.go.kr/content.do?cmsid=527&sf_cat1=CWS485&cat1_0=CWS485&sf_cat2=CWS496&mode=view&page=1&cid=19156">운동용안전모</a><br>
+						&nbsp;<a target="_blank" style="color:#0095e6;" href="http://kats.go.kr/content.do?cmsid=527&sf_cat1=CWS485&cat1_0=CWS485&sf_cat2=CWS496&mode=view&page=1&cid=19157">온열팩(주머니난로를 포함한다)</a><br>
+						&nbsp;<a target="_blank" style="color:#0095e6;" href="http://kats.go.kr/content.do?cmsid=527&sf_cat1=CWS485&cat1_0=CWS485&sf_cat2=CWS496&mode=view&page=1&cid=19158">수유패드</a><br>
+						&nbsp;<a target="_blank" style="color:#0095e6;" href="http://kats.go.kr/content.do?cmsid=527&sf_cat1=CWS485&cat1_0=CWS485&sf_cat2=CWS496&mode=view&page=2&cid=19139">기름난로</a><br>
+						&nbsp;<a target="_blank" style="color:#0095e6;" href="http://kats.go.kr/content.do?cmsid=527&sf_cat1=CWS485&cat1_0=CWS485&sf_cat2=CWS496&mode=view&page=2&cid=21272">전동보드('20.02.16.시행)</a><br>
+		            </td>
+		          </tr>
+		        </table>
+		      </div>
+		      <br><br>
+		      <!-- <img src="/resources/img/sub/s2-2.png" alt="안전확인 시험검사 기관" /> -->
+		      <p class="tit2">안전확인 시험·검사 기관</p>
+				<p>
+				전기용품 및 생활용품 안전관리법 제15조<br>
+				안전확인대상제품에 관한 안전기준을 적용하여 안전확인시험을 실시하는 기관<br>
+				안전확인대상제품의 안전에 관한 시험을 실시하는 국내외 기관은 안전확인시험기관과 제품시험의 결과를 인정하는 계약을 체결한 경우, 제품시험의 결과를 인정받을 수 있음(⌜전기용품 및 생활용품 안전관리법⌟제14조제3항)<br>
+				※ 계약 체결 가능 국내외 기관<br>
+				1. ⌜국가표준기본법⌟제23조제2항에 따른 인정기구로부터 인정받은 시험·검사기관<br>
+				2. 국제표준화기구(ISO)의 국제표준에 따라 국제시험기관협의체(ILAC)로부터 인정받은 시험·검사기관<br>
+				※ 현재 계약 체결 기관 없음
+				</p>
+				
+				<div class="tb_wrap" style="width:97.5%">
+				<table class="tb" summary="안전인증대상 어린이제품(15품목)을 분야, 대상품목 항목으로 정보제공" width="100%">
+					<caption>안전인증대상 어린이제품(15품목)</caption>
+					<colgroup>
+						<col width="30%" />
+						<col width="70%" />
+					</colgroup>
+					<tbody>
+						<tr>
+							<th scope="col">안전확인 시험·검사 기관명</th>
+							<th scope="col">안전확인 시험·검사업무 범위</th>
+						</tr>
+						<tr>
+							<th scope="row">한국화학<br />융합시험<br />연구원<br />
+							<a href="http://www.kcl.re.kr" target="_blank">(www.ktr.or.kr)</a></th>
+							<td class="tbleft">건전지, 자동차용타이어, 가정용 미용기기, 실내용 바닥재</td>
+						</tr>
+						<tr>
+							<th scope="row">한국건설<br />생활환경<br />시험연구원<br />
+							<a href="http://www.kcl.re.kr" target="_blank">(www.kcl.re.kr)</a></th>
+							<td class="tbleft">휴대용예초기날및보호덮개, 실내용바닥재, 고령자용보행보조차, 스케이트보드, 이륜자전거, 헬스기구, 운동용안전모, 온열팩, 수유패드, 승차용안전모, 스노보드, 스키용구, 롤러스포츠보호장구, 고령자용보행차, 미끄럼방지타일, 전동보드, 스포츠용구명복,빙삭기,야외 운동기구</td>
+						</tr>
+						<tr>
+							<th scope="row">한국기계<br />전기전자<br />시험연구원<br />
+							<a href="http://www.ktc.re.kr" target="_blank">(www.ktc.re.kr)</a></th>
+							<td class="tbleft">건전지, 자동차용브레이크액, 휴대용예초기날및보호덮개, 고령자용보조차, 디지털도어록, 스케이트보드, 이륜자전거, 헬스기구, 휴대용레이저용품, 운동용안전모, 온열팩, 수유패드, 전동보드, 야외 운동기구, 가정용 미용기기</td>
+						</tr>
+						<tr>
+							<th scope="row">한국의류<br />시험연구원<br />
+							<a href="http://www.katri.re.kr" target="_blank">(www.katri.re.kr)</a></th>
+							<td class="tbleft">등산용로프, 수유패드, 온열팩</td>
+						</tr>
+						<tr>
+							<th scope="row">FITI<br />시험연구원<br />
+							<a href="http://www.fiti.re.kr" target="_blank">(www.fiti.re.kr)</a></th>
+							<td class="tbleft">등산용로프, 실내용바닥재, 온열팩, 수유패드, 스노보드, 스키용구, 스포츠용구명복,야외 운동기구</td>
+						</tr>
+						<tr>
+							<th scope="row">한국산업<br />기술시험원<br />
+							<a href="http://www.kcl.re.kr" target="_blank">(www.ktl.re.kr)</a></th>
+							<td class="tbleft">휴대용레이저용품, 가정용 미용기기</td>
+						</tr>
+						<tr>
+							<th scope="row">한국에너지<br />기기산업<br />진흥회<br />
+							<a href="http://www.eaa.or.kr" target="_blank">(www.eaa.or.kr)</a></th>
+							<td class="tbleft">기름난로</td>
+						</tr>
+					</tbody>
+				</table>
+				</div>
+		      <br><br>
+		      <p class="tit2">안전확인 절차</p>
+		      <div class="safety_conBox">
+		      	<div class="con_left">
+		      		<ul>
+		      			<li>안전확인신고(제조업자, 수입업자<br>[별지 제 14호 서식]</li>
+		      			<li><img src="https://kats.go.kr/images/policy/prosafe_img5.jpg" alt="▼"></li>
+		      			<li>안전확인 신고증명서 발급(안전인증기관)<br>[별지 제 15호 서식]</li>
+		      			<li><img src="https://kats.go.kr/images/policy/prosafe_img5.jpg" alt="▼"></li>
+		      			<li>안전확인 표시판매<br>(제조업자(외국제조업자 포함),수입업자) [별표 9]</li>
+		      		</ul>
+		      	</div>
+		      	<div class="con_right">
+		      		<dl>
+		      			<dt>별지 제14호 서식</dt>
+		      			<dd>안전확인 신고서</dd>
+		      			<dt>별지 제 15호 서식</dt>
+		      			<dd>안전확인신고 증명서</dd>
+		      			<dt>구비서류</dt>
+		      			<dd>사업자등록증 사본, 제품의 설명서, 안전확인대상<br>생활용품 시험·검사기관의 해당 제품에 대한<br>안전확인시험기관의 안전확인시험 결과서 등</dd>
+		      		</dl>
+		      	</div>
+		      </div>
+		      <br><br>
+				<p class="tit2">안전확인의 표시기준 및 표시방법</p>
+				<p>전기용품 및 생활용품 안전관리법 제18조, 시행규칙 제37조제1항 관련
+				제조업자 또는 수입업자가 지정된 시험·검사기관으로부터 안전성에 대한 시험·검사를 받아 생활용품의 안전기준에 적합한 것임을 스스로 확인한 후 안전인증기관에 신고한 생활용품에 나타내는 표시</p>
+						      
+		      <br>
+		         <!-- section -->
+       <div style="background-color:#f5f5f5;padding:30px;padding-left:50px;border:1px solid #dbdbdb;letter-spacing:-0.5px;width:87%">
+			      <ul class="pt20">
+			      	<li class="fs13" style="color:#0095e6"><B>[별표 8] 안전인증, 안전확인신고, 공급자적합성확인 및 어린이보호포장의 표시방법</B></li>
+			      	<li class="fs13" style="color:#0095e6">&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>(제20조제1항, 제37조제1항, 제48조제1항 및 제55조제1항 관련)</B></li>
+			      </ul>
+			      <br>
+			      <p class="fs13" style="color:#0095e6"><B>1. 안전인증, 안전확인신고, 공급자적합성확인 및 어린이보호포장의 표시방법</B></p>
+			      <p class="fs13">가.도안</p>
+			      <div class="section pt20">
+				  <p class="ta_center"><img src="/resources/img/sub/49_body_1_1.jpg" alt="KC인증마크" />
+				  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				  	 <img src="/resources/img/sub/49_body_1_2.jpg" alt="KC인증마크" /><br><br>
+				  	 <img src="/resources/img/sub/49_body_1_3.jpg" alt="안전인증번호:, 안전확인신고번호:, 어린이보호포장신고확인번호:" />
+				  </p>
+				  
+			   	  </div>
+			    
+			    <div class="section">
+			      <p class="fs13">나.표시 요령</p>
+			      <p class="fs13">1) 안전인증, 안전확인신고, 공급자적합성확인 및 어린이보호포장(이하 이 표에서 "안전인증등"이라 한다)을 표시하는</p>
+			      <p class="fs13 pl10" style="padding-left:15px !important;"> 각각의 도안 크기는 안전관리대상제품의 크기에 따라 조정하되 가로, 세로비율은 가목과 같다.</p>
+			      <p class="fs13">2) 안전인증등의 표시방법은 해당 안전관리대상제품 또는 그 포장에 쉽게 알아볼 수 있도록 표시하고, 떨어지지 않도록</p>
+			      <p class="fs13 pl10" style="padding-left:15px !important;"> 붙이거나 인쇄 또는 각인 등의 방법으로 표시하여야 한다.</p>
+			      <p class="fs13">3) 안전인증등의 표시방법 및 안전기준에 관한 사항, 국가기술표준원장이 정하는 사항은 한글로 표기하여야 한다. 다만,</p>
+			      <p class="fs13 pl10" style="padding-left:15px !important;"> 전기용품의 경우에는 국문 또는 영문 등의 글자로 부기할 수 있다.</p>
+			      <p class="fs13">4) 안전인증등의 도안 색상은 검은색을 원칙으로 하고 보색을 할 수 있다.</p>
+			      <p class="fs13">5) 제품의 표면에 안전인증표시를 붙이는 것이 곤란하거나 실수요자가 다량을 구입하여 직접 사용하는 생활용품으로서</p>
+			      <p class="fs13 pl10" style="padding-left:15px !important;"> 시중에 유통될 우려가 없는 경우에는 해당 생활용품의 최소포장마다 붙일 수 있다.</p>
+			      <p class="fs13">6) 세부표시사항은 국가기술표준원장이 고시하는 바에 따른다.</p>
+			    </div>
+			
+			    <div class="section">
+			      <p class="fs13" style="color:#0095e6"><B>2. 안전인증등의 면제확인 표시방법</B></p>
+			      <p class="fs13">가. 안전인증등의 면제확인 표시는 해당 제품에 부착하여야 한다.</p>
+			      <p class="fs13">나. 안전인증등의 면제확인 표시는 안전인증등의 도안을 사용하고, 그 도안과 인접하여 하단에 "면제검사필"표시를</p>
+			      <p class="fs13 pl10" style="padding-left:20px !important;">부착하여야 한다.</p>
+			      <p class="fs13">다. 수출용 제품 또는 제품이 소형이거나 부분품ㆍ부속품으로 사용되어 면제확인 표시를 붙이는 것이 곤란한 경우에는</p>
+			      <p class="fs13 pl10" style="padding-left:20px !important;"> 그 사유를 작성하고, 관련 서류에 면제검사필증을 부착하여 보관하여야 한다.</p>
+			    </div>
+			    
+			    <div class="section">
+			      <p class="fs13" style="color:#0095e6"><B>3. 수입중고 전기용품의 안전검사 표시방법</B></p>
+			      <p class="fs13">가. 수입중고 전기용품의 안전검사 표시는 해당 제품에 부착하여야 한다.</p>
+			      <p class="fs13">나. 수입중고 전기용품의 안전검사 표시는 안전인증등의 도안을 사용하고, 국가기술표준원장이 정하는 절차에 따라 그</p>
+			      <p class="fs13 pl10" style="padding-left:20px !important;"> 도안과 인접하여 하단에 "안전검사필"과 "제품고유번호"를 표시하여야 한다.</p>
+			    </div>
+			
+			    <div class="section">
+			      <p class="tit">DOWNLOAD</p>
+			      <p>
+			        <span><a href="/fileDownLoadImg?fileName=%EC%95%88%EC%A0%84%ED%99%95%EC%9D%B8%EB%A7%88%ED%81%AC.ai" class="Button gray">안전확인 마크(ai) 다운로드</a></span>
+			        <span><a href="/fileDownLoadImg?fileName=%EC%95%88%EC%A0%84%ED%99%95%EC%9D%B8%EB%A7%88%ED%81%AC.jpg" class="Button gray">안전확인 마크(jpg) 다운로드</a></span>
+			      </p>
+			    </div>
+    </div>
+    <!-- //section -->
+    
+    </div>
+<!-- //section -->
+  
+    
+   
+  <!-- //contents -->
+</div>
+</div>
+<!-- //contents_area -->
+
+
+</div>
+
+
+
+<script>
+    if(top != window) {
+        top.location = window.location;
+    }
+    function addMenu(){
+    	$("#addMenu").show();
+    }
+    </script>		 
+<!-- main_cont04 -->
+<div class="main_container">
+    <div class="main_cont04">
+        <div class="part02 radius">
+            <ul>              
+                        
+                <li><a href="https://globalrecalls.oecd.org/" target="_blank"><img
+                        src="/resources/img/main/icon_main_cont04_201.gif" alt="OECD리콜정보" title="OECD리콜정보"/>OECD리콜정보</a>
+                </li>
+				   <li><a href="https://www.ciss.go.kr/www/contents.do?key=91" target="_blank"><img
+                        src="/resources/img/main/icon_main_cont04_206.gif" alt="한국소비자원" title="한국소비자원"/>소비자위해감시시스템</a>
+                </li>
+                <li><a href="https://kreach.me.go.kr/repwrt/index.do" target="_blank"><img
+                        src="/resources/img/main/icon_main_cont04_204.gif" alt="위해화학물질" title="위해화학물질"/>위해화학물질DB</a>
+                </li>
+                <li><a href="http://www.nifds.go.kr/toxinfo/" target="_blank"><img
+                        src="/resources/img/main/icon_main_cont04_204.gif" alt="독성정보DB" title="독성정보DB"/>독성정보DB</a>
+				</li>
+                <li><a href="https://www.consumer.go.kr/" target="_blank"><img
+                        src="/resources/img/main/icon_main_cont04_207.png" alt="소비자24" title="소비자24"/>소비자24</a>
+				</li>
+				 <li><a href="/monitoring/monitorMain"><img
+                        src="/resources/img/main/icon_main_cont04_202.gif"
+                        alt="모니터링" title="모니터링"/>모니터링</a></li>
+				 <li><a href="https://certi-icnp.kr" target="_blank"><img
+                        src="/resources/img/main/icon_main_cont04_205.jpg"
+                        alt="적합성인증" title="적합성인증"/>적합성인증</a></li>
+				 <li><a href="javascript:addMenu();"><img
+                        src="/resources/img/main/icon_main_cont04_101.gif"
+                        alt="유관기관" title="유관기관"/>유관기관</a></li>	
+            </ul>
+               
+                        <div id="addMenu" style="display:none;padding-right:50px;float:right;">
+                        <ul>
+                        <li><a href="https://kips.kr/" target="_blank">▶한국제품안전관리원</a></li>
+                        <li><a href="http://www.motie.go.kr/www/main.do" target="_blank">▶산업통상부</a></li>
+                        <li><a href="https://kats.go.kr/main.do" target="_blank">▶국가기술표준원</a></li>
+                        <li><a href="https://www.standard.go.kr/KSCI/portalindex.do" target="_blank">▶e나라표준인증</a></li>
+                        </ul>
+                        </div>
+        </div>
+    </div>
+    <br/>
+</div>
+<!-- //main_cont04 -->
+
+<!-- footer -->
+<div class="footer">
+    <!-- bottom_menu -->
+    <div class="bottom_menu">
+        <ul>
+			<li><a style="color:blue;font-size:10pt;" target="_blank" href="http://www.kats.go.kr/content.do?cmsid=366" title="개인정보취급방침">개인정보 처리방침</a></li>
+            <li>|</li>
+            <li><a href="/footer/mailCollect" title="이메일무단수집거부">이메일무단수집거부</a></li>
+            <li>|</li>
+            <li><a href="/footer/mailService" title="이메일서비스">이메일서비스</a></li>
+            <li>|</li>
+            <li><a href="#" id="btn_menu_all" title="전체메뉴">전체메뉴</a></li>
+        </ul>
+    </div>
+    <!-- //bottom_menu -->
+
+    <!-- inner -->
+    <div class="inner">
+        <p class="logo"><img src="/resources/img/common/foot_logo.jpg"
+                             alt="Safety KOREA산업통상부 국가기술표준원" title="Safety KOREA산업통상부 국가기술표준원"/></p>
+        <address>
+            <p>
+            <b>충북 음성군 맹동면 이수로 93 (우 27737)</b>
+            <b style="padding-left:50px;">시스템 장애 문의 : 043-870-5620</b>
+            </p>
+            <p><span>COPYRIGHT 2014 KATS. ALL RIGHT RESERVED.</span></p>
+            
+        </address>
+        
+    </div>
+    <!-- //inner -->
+</div>
+<!-- //footer -->
+
+
+<!-- menu_all -->
+<div id="menu_all">
+    <div class="inner">
+
+        <dl class="ml0">
+            <dt>정보공개</dt>
+
+            <dd><a href="#" onclick="$('#certifiGo').submit();"><em>·</em>인증정보 검색</a></dd>
+
+            <dd><a href="/release/openapi"><em>·</em>Open API</a></dd>
+        </dl>
+        <dl>
+            <dt>제품리콜</dt>
+            <dd><a href="/recall/recallBoard"><em>·</em>리콜정보 검색</a></dd>
+            <dd><a href="/recall/recallIntro"><em>·</em>리콜제도 소개</a></dd>
+            <dd><a href="/recall/recallProc01"><em>·</em>리콜절차 안내</a></dd>
+            <dd><a href="/recall/recallReportRegist"><em>·</em>사업자 리콜 보고</a></dd>
+
+            <dd><a href="/recall/recallGlobalSite"><em>·</em>해외 리콜 사이트</a></dd>
+        </dl>
+        <dl>
+            <dt>위해신고</dt>
+            <dd><a href="/report/product"><em>·</em>제품사고 신고</a></dd>
+            <dd><a href="/report/product_incident_report"><em>·</em>제품사고 발생 보고</a></dd> 
+
+            <dd><a href="/report/qna"><em>·</em>민원 Q&amp;A (외부링크)</a></dd>
+            <dd><a href="/report/illegal_entry"><em>·</em>불법·불량 제품신고 (외부링크)</a></dd>
+
+
+        </dl>
+        <dl>
+            <dt>안전정책</dt>
+            <dd><a href="/policy/statute"><em>·</em>법령</a></dd>
+            <dd><a href="/policy/totalPlan"><em>·</em>제품안전 종합계획</a></dd>
+            <dd><a href="/policy/childPlan"><em>·</em>어린이 기본계획</a></dd>
+            <dd><a href="/policy/targetsSafetyCert"><em>·</em>제품안전 대상품목</a></dd>
+            <dd><a href="/policy/standard"><em>·</em>제품안전 기준열람</a></dd>
+            <dd><a href="/policy/b_marketProductCert"><em>·</em>시장유통 전</a></dd>
+            <dd><a href="/policy/a_marketSafety"><em>·</em>시장유통 후</a></dd>
+            <dd><a href="/policy/certification_info"><em>·</em>인증기관 소개</a></dd>
+        </dl>
+        <dl>
+            <dt>알림뉴스</dt>
+            <dd><a href="/news/notice"><em>·</em>공지사항</a></dd>
+            <dd><a href="/news/notification_policy"><em>·</em>정책알림  (외부링크)</a></dd>
+            <dd><a href="/news/promote"><em>·</em>보도자료</a></dd>
+            <dd><a href="/news/animation"><em>·</em>웹툰</a></dd>
+            <dd><a href="/news/public"><em>·</em>홍보영상</a></dd>
+            <dd><a href="/news/publications"><em>·</em>간행물</a></dd>
+			<dd><a href="/news/studentList"><em>·</em>제품안전 교육자료</a></dd>
+
+        </dl>
+        <dl>
+            <dt>센터소개</dt>
+            <dd><a href="/introduce/centerintro"><em>·</em>소개</a></dd>
+            <dd><a href="/introduce/staff"><em>·</em>직원안내</a></dd>
+            <dd><a href="/introduce/comeway"><em>·</em>오시는길</a></dd>
+            <dd><a href="/introduce/complain"><em>·</em>시스템 불편사항</a></dd>
+            <dd><a href="/introduce/media"><em>·</em>자주하는 질문</a></dd>
+        </dl>
+        <span class="b-close"><a href="#none"><img src="/resources/img/common/btn_menuall_close.gif" alt="닫기"/></a></span>
+    </div>
+</div>
+<!-- menu_all -->
+
+
+<script >
+    (function ($) {
+        $(function () {
+        	
+        	$('#btn_menu_all').on("click", function(e){
+        		e.preventDefault();
+                $("#menu_all").fadeIn();
+        	});
+        	$(".b-close").on("click", function(){
+        		$("#menu_all").fadeOut();
+        	});
+        	
+        });
+    })(jQuery);
+</script>
+</body>
+</html>
