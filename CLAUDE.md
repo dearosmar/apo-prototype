@@ -13,6 +13,7 @@ KB AI Challenge 출품작. **8/3(월) 접수 마감**, 1인 개발 + Claude 페�
 ## 컨벤션
 
 - **브랜치**: `prefix/#이슈번호` (예: `feat/#6`, `chore/#5`, `task/#10`)
+- **핫픽스**: 빌드 깨짐 등 긴급 수정도 main 직접 커밋 금지 — `hotfix/#이슈번호` 브랜치 → PR로 처리
 - **커밋**: `[prefix] #이슈번호 작업 내용` (prefix: feat / fix / docs / chore / test / refactor / merge)
 - **커밋 작성자**: JUHUI CHOI <dear.ros.mar@gmail.com> 단일 명의. Co-Authored-By 트레일러 금지.
 - **이슈/PR**: `.github/` 템플릿 사용. PR 본문에 `closed: #이슈번호` 표기.
