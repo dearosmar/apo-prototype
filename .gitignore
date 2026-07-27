@@ -26,3 +26,4 @@ DerivedData/
 # RAG artifacts
 *.faiss
 *.index
+backend/data/vectorstore/

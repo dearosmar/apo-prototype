@@ -19,7 +19,9 @@
 | 생활용품_안전인증.html | 생활용품 안전인증 제도 | 제품안전정보센터(safetykorea) | https://www.safetykorea.kr/policy/targetsSafetyCert2 | HTML | |
 | 생활용품_안전확인.html | 생활용품 안전확인 제도 | 제품안전정보센터(safetykorea) | https://www.safetykorea.kr/policy/targetsSafetyCheck2 | HTML | |
 | 어린이제품_안전인증.html | 어린이제품 안전인증 제도 | 제품안전정보센터(safetykorea) | https://www.safetykorea.kr/policy/targetsSafetyCert3 | HTML | 데모 시나리오①(인형)의 요건 근거 |
-| 어린이제품_안전확인.html | 어린이제품 안전확인 제도 | 제품안전정보센터(safetykorea) | https://www.safetykorea.kr/policy/targetsSafetyCheck3 | HTML | |
+| 어린이제품_안전확인.html | 어린이제품 안전확인 제도 | 제품안전정보센터(safetykorea) | https://www.safetykorea.kr/policy/targetsSafetyCheck3 | HTML | 안전확인대상 17품목 표에 '완구' 포함 |
+| 어린이제품_공급자적합성확인.html | 어린이제품 공급자적합성확인 제도 | 제품안전정보센터(safetykorea) | https://www.safetykorea.kr/policy/targetsSafetySupply | HTML | 3단계 제도 중 최하위 단계 — 품목 분류 보완용 |
+| 완구_안전기준_부속서6.pdf | 안전확인 안전기준 완구(Toys) 부속서6 | 산업통상자원부 국가기술표준원 | http://kats.go.kr/content.do?cmsid=530&mode=view&cid=19272 | PDF (189p, 4.9MB) | **봉제인형이 완구 종류로 명시** — 데모 시나리오① 핵심 근거 |
 
 ## 이용 조건
 
