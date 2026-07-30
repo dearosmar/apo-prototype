@@ -1,0 +1,27 @@
+PROFORMA INVOICE 形式发票
+
+PI No.: YW-2026-0728-A
+Date: 2026-07-28
+
+Seller 卖方: 义乌市童乐玩具有限公司 (Yiwu Tongle Toys Co., Ltd.)
+Address: 浙江省义乌市国际商贸城三区
+Buyer 买方: BADA TRADING (Korea)
+
+Description 品名: 毛绒玩具 玩偶 (Plush Toy Doll, 30cm)
+Quantity 数量: 500 PCS
+Unit Price 单价: CNY 12.00 / PC
+Total Amount 总金额: CNY 6,000.00
+
+Trade Terms 贸易条款: FOB Ningbo (宁波港)
+Payment Terms 付款方式: 30% T/T deposit 定金, 70% balance before shipment 出货前付清
+Lead Time 交货期: 收到定金后 25 天 (25 days after deposit)
+Port of Loading 装运港: Ningbo, China
+Port of Destination 目的港: Incheon, Korea
+
+Beneficiary Bank 收款银行: Bank of China, Yiwu Branch
+Account Name 账户名: 义乌市童乐玩具有限公司
+Account No.: 3853 0188 8888 6666
+
+Remarks 备注: 产品符合 GB 6675 玩具安全标准, 可提供测试报告。
+Validity 有效期: 30 days
+Seller Signature 卖方签章: (盖章) 义乌市童乐玩具有限公司

@@ -1,0 +1,22 @@
+PROFORMA INVOICE 形式发票
+
+PI No.: SZ-2026-0729
+Date: 2026-07-29
+
+Seller 卖方: 深圳市恒发贸易有限公司
+Buyer 买方: BADA TRADING (Korea)
+
+Description 品名: 毛绒玩具 (Plush Toys, assorted)
+Quantity 数量: 500 PCS
+Unit Price 单价: CNY 11.00 / PC
+Total Amount 总金额: CNY 5,500.00
+
+Trade Terms 贸易条款: EXW Shenzhen 深圳工厂交货
+Payment Terms 付款方式: 100% T/T in advance 全款预付
+
+Beneficiary Bank 收款银行: Agricultural Bank of China
+Account Name 账户名: 王小明 (WANG XIAOMING, personal 个人账户)
+Account No.: 6228 4800 1234 5678
+
+Remarks 备注: 价格优惠仅限本周, 请尽快付款。
+Seller Signature 卖方签章: (无 no stamp)
