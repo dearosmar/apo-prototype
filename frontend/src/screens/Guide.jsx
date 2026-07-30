@@ -3,12 +3,31 @@ import styled from 'styled-components'
 import { postJson } from '../api'
 import { useAppStore } from '../store'
 import { Card, PrimaryButton, GhostButton, ErrorBox, Skeleton } from '../components/common'
+import MatchCard from '../components/MatchCard'
 
 const CHIPS = [
   '봉제 인형 KC 인증 필요해?',
+  '선금 30%(1,800위안)를 30일 뒤에 보내야 해요. 지금 환전할까요?',
   '해외직구 150달러 넘으면 세금 어떻게 돼?',
   '수입신고는 어떤 순서로 진행돼?',
 ]
+
+const FX_INTENT = /환전|환율|환헤지|환리스크|송금/
+const AMOUNT_RE = /([\d,]+(?:\.\d+)?)\s*(위안|달러|엔|유로|CNY|USD|JPY|EUR)/i
+const DAYS_RE = /(\d+)\s*일/
+const CURRENCY_MAP = { 위안: 'CNY', 달러: 'USD', 엔: 'JPY', 유로: 'EUR' }
+
+function parseFxParams(question) {
+  const amount = question.match(AMOUNT_RE)
+  const days = question.match(DAYS_RE)
+  const rawCur = amount?.[2]
+  return {
+    amount_foreign: amount ? Number(amount[1].replaceAll(',', '')) : 1800,
+    currency: rawCur ? CURRENCY_MAP[rawCur] || rawCur.toUpperCase() : 'CNY',
+    due_days: days ? Number(days[1]) : 30,
+    context: question,
+  }
+}
 
 const Wrap = styled.div`
   display: flex;
@@ -114,6 +133,10 @@ export default function Guide() {
     setError(null)
     setInput('')
     addMessage({ role: 'user', text: question })
+    if (FX_INTENT.test(question)) {
+      addMessage({ role: 'match', initial: parseFxParams(question) })
+      return
+    }
     setLoading(true)
     try {
       const res = await postJson('/ask', { question })
@@ -133,13 +156,11 @@ export default function Guide() {
           함께 답해 드려요. 아래 예시를 눌러 시작해 보세요.
         </Card>
       )}
-      {messages.map((m, i) =>
-        m.role === 'user' ? (
-          <Bubble key={i} $me>{m.text}</Bubble>
-        ) : (
-          <AnswerBubble key={i} msg={m} />
-        ),
-      )}
+      {messages.map((m, i) => {
+        if (m.role === 'user') return <Bubble key={i} $me>{m.text}</Bubble>
+        if (m.role === 'match') return <MatchCard key={i} initial={m.initial} />
+        return <AnswerBubble key={i} msg={m} />
+      })}
       {loading && (
         <Bubble style={{ width: '60%' }}>
           <Skeleton w="90%" />
