@@ -27,7 +27,18 @@ struct ContentView: View {
                         .multilineTextAlignment(.center)
                 }
 
-                // TODO: #39 문서 스캔 버튼으로 교체
+                NavigationLink {
+                    ScanFlowView()
+                } label: {
+                    Text("📷  계약서 촬영하고 점검하기")
+                        .font(.headline)
+                        .frame(maxWidth: .infinity)
+                }
+                .padding()
+                .background(AppColor.yellow)
+                .foregroundStyle(AppColor.navy)
+                .clipShape(RoundedRectangle(cornerRadius: 12))
+
                 Button {
                     Task { await runSample() }
                 } label: {
@@ -35,12 +46,11 @@ struct ContentView: View {
                         ProgressView().frame(maxWidth: .infinity)
                     } else {
                         Text("샘플 텍스트로 점검해 보기")
-                            .font(.headline)
                             .frame(maxWidth: .infinity)
                     }
                 }
                 .padding()
-                .background(AppColor.yellow)
+                .background(Color(.systemGray6))
                 .foregroundStyle(AppColor.navy)
                 .clipShape(RoundedRectangle(cornerRadius: 12))
                 .disabled(loading)
