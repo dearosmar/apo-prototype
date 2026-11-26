@@ -8,7 +8,7 @@
   <img src="https://img.shields.io/badge/FastAPI-0.11x-009688?logo=fastapi&logoColor=white" />
   <img src="https://img.shields.io/badge/SwiftUI-iOS%2016+-F05138?logo=swift&logoColor=white" />
   <img src="https://img.shields.io/badge/Claude_API-Anthropic-D97757" />
-  <img src="https://img.shields.io/badge/RAG-FAISS-0B2A46" />
+  <img src="https://img.shields.io/badge/RAG-BM25%2BFAISS-0B2A46" />
 </p>
 
 ---
@@ -27,7 +27,7 @@
 
 ## 무엇을 하는가
 
-자연어로 물으면, 오케스트레이터가 4개의 전문 에이전트 중 적합한 곳으로 라우팅합니다.
+수입 셀러가 막히는 네 지점을 기능별 에이전트(API)로 나눴습니다. 웹·iOS 화면에서 각 기능을 직접 호출합니다.
 
 | 에이전트 | 하는 일 |
 |---|---|
@@ -36,6 +36,7 @@
 | **③ 외환·상품 매칭** | 노출 금액×기간 기반 환리스크 진단 → 금융상품 추천(사유·유의사항 병기) |
 | **④ 서류 리스크 점검** | PI/인보이스 분석 → 핵심 조건 추출 → 항목별 신호등 리포트 (중국어 지원) |
 
+<!-- 스크린샷: docs/screenshots/에 이미지 추가 후 주석 해제
 ### 스크린샷
 
 | 무역 길잡이 — 출처가 붙는 답변 | 환리스크 진단 |
@@ -45,6 +46,7 @@
 | 서류 리스크 리포트 | iOS 동행 앱 |
 |---|---|
 | ![](docs/screenshots/report.png) | ![](docs/screenshots/ios.png) |
+-->
 
 ---
 
@@ -99,17 +101,25 @@ RAG 청크에 문서명·페이지 메타데이터를 유지하고, 답변의 �
         │                   │
         └────────┬──────────┘
                  ▼
-        [FastAPI 백엔드]
-   오케스트레이터(Claude API) — 의도 분류·라우팅
-   ├─ ① 길잡이   : RAG (임베딩 + FAISS, 출처 메타데이터)
-   ├─ ② 원가 계산 : 룰베이스 엔진 + LLM HS 추정
-   ├─ ③ 외환 매칭 : 리스크 진단 + 상품 DB
-   └─ ④ 서류 점검 : 문서 파서 (텍스트 추출 · OCR)
+          [FastAPI 백엔드]
+   ├─ POST /ask       ① 길잡이   : 하이브리드 RAG → Claude 답변([n] 인용)
+   ├─ POST /cost      ② 원가 계산 : 룰베이스 엔진 + LLM HS 후보 추정
+   ├─ POST /match     ③ 외환 매칭 : 리스크 진단 + 상품 DB
+   └─ POST /doc-check ④ 서류 점검 : PI 조건 추출 · 신호등 리포트
                  │
                  ▼
    [외부 데이터] 한국수출입은행 환율 API · 관세청 오픈API · 가이드 문서
    (전 구간 스냅숏 폴백)
 ```
+
+### RAG 파이프라인 (`backend/app/services/rag.py`)
+
+- **원문**: 관세청 통관 안내·해외직구 가이드, KC 인증(어린이제품·전기용품·생활용품) 안내, 완구 안전기준 (PDF/HTML)
+- **청킹**: 700자 / 150자 오버랩, 청크마다 문서명·페이지(또는 HTML 섹션) 메타데이터 유지
+- **전처리**: 띄어쓰기가 사라진 PDF 텍스트를 kiwi로 복원
+- **검색**: kiwi 형태소 기반 BM25 + `multilingual-e5-small` 임베딩·FAISS 벡터 검색을 결합한 하이브리드 검색, 질의 분해(최대 2개)
+- **다양성**: 문서당 결과 최대 2개로 출처 편중 방지
+- **검증**: 답변의 `[n]`이 실제 검색 청크와 매칭되는지 pytest 회귀 테스트
 
 ### 주요 API
 
@@ -118,6 +128,9 @@ RAG 청크에 문서명·페이지 메타데이터를 유지하고, 답변의 �
 | `GET` | `/health` | 헬스체크 |
 | `POST` | `/ask` | 질문 → 출처 포함 답변 |
 | `POST` | `/cost` | 품목·수량·단가 → 환율 시나리오별 마진 |
+| `POST` | `/match` | 노출 금액·기간 → 환리스크 진단·금융상품 추천 |
+| `POST` | `/doc-check` | PI/인보이스 텍스트 → 조건 추출·신호등 리포트 |
+| `GET` | `/doc-check/samples` | 데모용 PI 샘플 목록 |
 
 전체 명세: 서버 실행 후 `http://127.0.0.1:8000/docs`
 
@@ -127,7 +140,7 @@ RAG 청크에 문서명·페이지 메타데이터를 유지하고, 답변의 �
 
 **Frontend** React 18 · Vite · Zustand · styled-components
 **Backend** FastAPI · Python 3.11
-**AI** Claude API · 임베딩 + FAISS
+**AI** Claude API · multilingual-e5-small + FAISS · BM25(kiwipiepy)
 **iOS** SwiftUI · VisionKit · Vision · WidgetKit
 **Test** pytest
 
@@ -174,12 +187,13 @@ Signing에 Apple ID를 지정하고, `Config.swift`의 `baseURL`을 맥의 LAN I
 .
 ├── backend/
 │   ├── app/
-│   │   ├── agents/       # 오케스트레이터 · 4개 에이전트
-│   │   └── services/     # 계산 룰 엔진 · RAG · 문서 파서
+│   │   ├── routers/      # ask · cost · match · doc-check API
+│   │   └── services/     # 계산 룰 엔진 · RAG · HS 추정 · 환율 · PI 점검
 │   ├── data/
 │   │   ├── docs/         # RAG 원문
 │   │   └── snapshots/    # 폴백 데이터
 │   └── tests/
+├── scripts/              # 인덱스 빌드 · Claude 연동 스모크 테스트
 ├── frontend/
 ├── BadaSajangnim/        # iOS
 └── docs/
@@ -201,7 +215,14 @@ Signing에 Apple ID를 지정하고, `Config.swift`의 `baseURL`을 맥의 LAN I
 
 2026.7.26 – 8.3 · 개인 프로젝트 · 이슈 단위 브랜치 → PR 워크플로
 
-8일간의 일자별 계획과 완료 기준은 [docs/개발일지.md](docs/개발일지.md)에 정리했습니다.
+8일간의 일자별 계획과 완료 기준은 [docs/프로토타입_실행계획_0803.md](docs/프로토타입_실행계획_0803.md)에 정리했습니다.
+
+---
+
+## 다음 단계
+
+- **검색 품질 정량 평가**: 근거 있는 질문 24개 + 문서에 답이 없는 질문 6개로 평가 세트를 만들어 인용 정확도·정답률·거절률 측정
+- **Qwen · AutoRAG Agent 비교**: 같은 평가 세트로 현재 하이브리드 RAG와 AutoRAG Agent + Qwen 조합 비교 (Build with Qwen: AutoRAG Hackathon 2026)
 
 ---
 
